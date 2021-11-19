@@ -32,7 +32,6 @@ function Cryptocurent() {
   return (
     <>
       <div className="App">
-        <h1 style={{color : "#4894b9"}}>All Cryptocurrencies</h1>
         <div className="input">
         <Input 
           type="text"

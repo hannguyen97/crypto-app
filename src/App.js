@@ -12,11 +12,9 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Suspense fallback={<div>loading...</div>}>
         <Switch>
           <Route path="/" component={Layouts} />
         </Switch>
-      </Suspense>
     </BrowserRouter>
   );
 }
