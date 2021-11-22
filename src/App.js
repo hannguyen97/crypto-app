@@ -12,9 +12,13 @@ function App() {
 
   return (
     <BrowserRouter>
+    <Router  >
+					<Switch>
         <Switch>
           <Route path="/" component={Layouts} />
         </Switch>
+      </Switch>
+      </Router>
     </BrowserRouter>
   );
 }

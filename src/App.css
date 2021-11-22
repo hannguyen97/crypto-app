@@ -81,4 +81,11 @@
   text-align: center;
   }
 
-  
+  .navigation-account {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-action a {
+    color: white;
+  }
