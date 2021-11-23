@@ -2,13 +2,18 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Menu, Avatar, Dropdown, Badge, Tooltip, Button } from "antd";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 NavigationAccount.propTypes = {};
 
 function NavigationAccount({ visible }) {
   const [accountDropDownVisible, setAccountDropDownVisible] = useState(true);
   const [authenticated, setAuthenticated] = useState(true);
+  const history = useHistory()
 
+  const handleLogout=()=>{
+    history.push("/login")
+  }
   const renderAccountMenu = () => {
     return (
       <Menu
@@ -72,7 +77,7 @@ function NavigationAccount({ visible }) {
         <Menu.Divider key="menu-divider-3" />
         <Menu.Item
           key="account-sign-out"
-          // onClick={handleLogout}
+          onClick={handleLogout}
         >
           <i className="fa fa-sign-out m-r-10" />
           Đăng xuất

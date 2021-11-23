@@ -1,7 +1,9 @@
-import React, { useCallback, lazy } from "react";
+import React, { lazy } from "react";
 
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'))
 const Cryptocurent = lazy(() => import('../../pages/Crytocurent/Cryptocurent'))
+const Login = lazy(() => import('../../pages/core/Login'))
+const Register = lazy(() => import('../../pages/core/Register'))
 
 const routers_core = [
     {
@@ -9,12 +11,26 @@ const routers_core = [
         exact: true,
         main: () => <HomePage/>,
         requireAuth: true,
-        extendTemplate: false,
+        extendTemplate: true,
     },
     {
         path: "/cryptocurent",
         exact: true,
         main: () => <Cryptocurent />,
+        requireAuth: true,
+        extendTemplate: true,
+    },
+    {
+        path: "/login",
+        exact: true,
+        main: () => <Login />,
+        requireAuth: true,
+        extendTemplate: false,
+    },
+    {
+        path: "/register",
+        exact: true,
+        main: () => <Register />,
         requireAuth: true,
         extendTemplate: false,
     }

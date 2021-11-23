@@ -17,9 +17,7 @@ function Navigation(props) {
                         CRYPTO
                     </Link>
             </div>
-                <NavigationAccount
-
-                />
+                <NavigationAccount/>
         </Header>
     );
 }
