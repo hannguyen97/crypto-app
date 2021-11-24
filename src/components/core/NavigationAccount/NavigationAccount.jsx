@@ -3,17 +3,18 @@ import PropTypes from "prop-types";
 import { Menu, Avatar, Dropdown, Badge, Tooltip, Button } from "antd";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import avatar from "../../../images/avatar.jpg"
 
 NavigationAccount.propTypes = {};
 
 function NavigationAccount({ visible }) {
   const [accountDropDownVisible, setAccountDropDownVisible] = useState(true);
   const [authenticated, setAuthenticated] = useState(true);
-  const history = useHistory()
+  const history = useHistory();
 
-  const handleLogout=()=>{
-    history.push("/login")
-  }
+  const handleLogout = () => {
+    history.push("/login");
+  };
   const renderAccountMenu = () => {
     return (
       <Menu
@@ -22,19 +23,19 @@ function NavigationAccount({ visible }) {
       >
         <Menu.Item>
           <p style={{ textAlign: "center" }}>
-            <Avatar src="https://joeschmoe.io/api/v1/random" size={50}>
+            <Avatar src={avatar} size={50}>
               hannguyencit@gmail.com
             </Avatar>
           </p>
           <div style={{ textAlign: "center" }}>
-            <Link to="profile">
+            <Link to="/profile">
               <b>hannguyencit@gmail.com</b>
             </Link>
           </div>
         </Menu.Item>
         <Menu.Divider />
         <Menu.Item key="account-profile">
-          <Link to="profile">
+          <Link to="/profile">
             <i className="fa fa-info-circle m-r-10" />
             Thông tin cá nhân {90 < 100 && <Badge dot />}
           </Link>
@@ -75,10 +76,7 @@ function NavigationAccount({ visible }) {
           </div>
         </Menu.Item>
         <Menu.Divider key="menu-divider-3" />
-        <Menu.Item
-          key="account-sign-out"
-          onClick={handleLogout}
-        >
+        <Menu.Item key="account-sign-out" onClick={handleLogout}>
           <i className="fa fa-sign-out m-r-10" />
           Đăng xuất
         </Menu.Item>
@@ -96,8 +94,19 @@ function NavigationAccount({ visible }) {
           className={`nav-action nav-account ${visible ? "active" : ""}`}
           overlayStyle={{ minWidth: 200 }}
         >
-          <Tooltip title="Tài khoản" ><span><i style={{fontSize: 20 , color : "white"}} className="fa fa-user" /></span></Tooltip>
-          {/* <Button>Button</Button> */}
+          {authenticated ? (
+            <span className="avatar-item">
+              <Badge count={1}>
+                <Avatar shape="square" src={avatar}/>
+              </Badge>
+            </span>
+          ) : (
+            <Tooltip title="Tài khoản">
+              <span>
+                <i className="fa fa-user user-profile" />
+              </span>
+            </Tooltip>
+          )}
         </Dropdown>
       ) : (
         <Tooltip title="Đăng nhập">

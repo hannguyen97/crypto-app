@@ -9,7 +9,8 @@ Login.propTypes = {};
 function Login(props) {
   let history = useHistory();
   const handleLogin = () => {
-    history.push("/");
+    
+    history.push("/home");
   };
   return (
     <div className="container-l">

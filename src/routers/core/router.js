@@ -4,10 +4,11 @@ const HomePage = lazy(() => import('../../pages/HomePage/HomePage'))
 const Cryptocurent = lazy(() => import('../../pages/Crytocurent/Cryptocurent'))
 const Login = lazy(() => import('../../pages/core/Login'))
 const Register = lazy(() => import('../../pages/core/Register'))
+const Profile = lazy(() => import('../../pages/core/Profile'))
 
 const routers_core = [
     {
-        path: "/",
+        path: "/home",
         exact: true,
         main: () => <HomePage/>,
         requireAuth: true,
@@ -33,6 +34,13 @@ const routers_core = [
         main: () => <Register />,
         requireAuth: true,
         extendTemplate: false,
+    },
+    {
+        path: "/profile",
+        exact: true,
+        main: () => <Profile />,
+        requireAuth: true,
+        extendTemplate: true,
     }
 ]
 export default routers_core;

@@ -5,24 +5,24 @@ import MenuRight from "../MenuRight";
 import Navigation from "../Navigation";
 import { Switch, Route } from "react-router-dom";
 import { Suspense } from "react";
+import Loading from "../loading";
 const { Header, Content, Footer, Sider } = Layout;
 
 Layout.propTypes = {};
 
 function ExtendTemp(routes = [],) {
-  console.log(routes.routes, "router");
   return (
     <Layout>
-      <MenuRight />
+      {/* <MenuRight /> */}
       <Navigation />
       <Layout className="wrapper-content">
         <Content className="main-content">
           <Layout style={{ overflow: "hidden" }}>
             <Content>
-              <Suspense fallback={<div>loading...</div>}>
+              <Suspense fallback={<Loading/>}>
               <Switch>
-                {routes.routes.map((route) => (
-                  <Route path={route.path} exact component={route.main} />
+                {routes.routes.map((route, index) => (
+                  <Route key={index} path={route.path} exact component={route.main} />
                 ))}
               </Switch>
               </Suspense>
